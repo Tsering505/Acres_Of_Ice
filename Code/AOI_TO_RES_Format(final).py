@@ -9,7 +9,7 @@ df.rename(columns={'site_name':'site_names'},inplace=True)
 pivoted_df = df.pivot_table(index=["time","site_names"], columns="measure_name", values="value", aggfunc='first')
 pivoted_df = pivoted_df.reset_index()
 pivoted_df.columns.name = None
-pivoted_df.drop(columns=['site_names'])
+pivoted_df.drop(columns=['site_names'],inplace=True)
 file_path = 'C:/Users/lenovo/OneDrive/Desktop/ConvertCSVAssignment/AOI_To_Res.csv'
 pivoted_df.to_csv(file_path, index=False)
 
